@@ -1,30 +1,97 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de Comandos Git</title>
+    <title>Diccionario Git Interactivo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Diccionario Git Interactiva</h1>
-        <p>Aprendiendo a trabajar con ramas</p>
+
+    <header class="encabezado">
+        <div class="logo">GIT<span>_</span></div>
+
+        <p class="etiqueta">GUÍA DE PROGRAMACIÓN</p>
+        <h1>Diccionario Git Interactivo</h1>
+        <p class="subtitulo">
+            Aprende los comandos esenciales para trabajar con repositorios.
+        </p>
+
+        <a href="#contenedor" class="boton-explorar">
+            EXPLORAR COMANDOS <span>↓</span>
+        </a>
     </header>
-    <main id="contenedor">
-        <section class="comando">
-            <h2>git init</h2>
-            <p>Inicializa un nuevo repositorio local en la carpeta actual.</p>
+
+    <main id="contenedor" class="contenedor">
+
+        <div class="titulo-seccion">
+            <p class="etiqueta">COMANDOS BÁSICOS</p>
+            <h2>Tu caja de herramientas</h2>
+            <p>Descubre para qué sirve cada comando de Git.</p>
+        </div>
+
+        <div class="lista-comandos">
+
+            <section class="comando">
+                <div class="icono-comando">01</div>
+                <span class="categoria">REPOSITORIO</span>
+                <h2>git init</h2>
+                <p>
+                    Inicializa un nuevo repositorio local en la carpeta actual
+                    para comenzar a controlar las versiones de tu proyecto.
+                </p>
+                <div class="codigo">
+                    <span>$</span> git init
+                </div>
+            </section>
+
+            <section class="comando">
+                <div class="icono-comando">02</div>
+                <span class="categoria">DESCARGA</span>
+                <h2>git clone</h2>
+                <p>
+                    Descarga una copia de un repositorio remoto para que puedas
+                    trabajar con sus archivos en tu computadora.
+                </p>
+                <div class="codigo">
+                    <span>$</span> git clone URL
+                </div>
+            </section>
+
+            <section class="comando">
+                <div class="icono-comando">03</div>
+                <span class="categoria">CONTROL DE CAMBIOS</span>
+                <h2>git add</h2>
+                <p>
+                    Selecciona los archivos modificados que deseas preparar
+                    para incluirlos en el próximo commit.
+                </p>
+                <div class="codigo">
+                    <span>$</span> git add .
+                </div>
+            </section>
+
+        </div>
+
+        <section class="consejo">
+            <div class="consejo-icono">💡</div>
+            <div>
+                <h3>¡Consejo de programador!</h3>
+                <p>
+                    Después de preparar tus cambios con
+                    <strong>git add</strong>, puedes guardarlos en el historial
+                    con <strong>git commit</strong>.
+                </p>
+            </div>
         </section>
-        <section class="comando">
-            <h2>git clone</h2>
-            <p>Descarga una copia exacta de un repositorio remoto.</p>
-        </section>
-        <section class="comando">
-            <h2>git add</h2>
-            <p>Prepara los cambios (staging) para ser incluidos en el próximo commit.</p>
-        </section>
-        <!-- Aquí los estudiantes agregarán más comandos luego -->
+
     </main>
+
+    <footer class="pie-pagina">
+        <p>Desarrollado para aprender programación.</p>
+        <p class="pie-marca">GIT_ <span>•</span> APRENDE · PRACTICA · CREA</p>
+    </footer>
+
 </body>
 </html>

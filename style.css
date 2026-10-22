@@ -1,3 +1,403 @@
-body { font-family: sans-serif; background-color: #f4f4f4; color: #333; padding: 20px; }
-.comando { background: white; padding: 15px; margin-bottom: 10px; border-left: 5px solid #2ecc71; border-radius: 4px; }
-h1 { color: #2c3e50; }
+
+/* ==================================
+   CONFIGURACIÓN GENERAL
+================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fondo: #0d111b;
+    --tarjeta: #171e2d;
+    --tarjeta-hover: #202a3d;
+    --texto: #f0f4ff;
+    --texto-secundario: #a0aec4;
+    --verde: #56f0a3;
+    --violeta: #a78bfa;
+    --borde: rgba(255, 255, 255, 0.09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ==================================
+   ENCABEZADO
+================================== */
+
+.encabezado {
+    position: relative;
+    text-align: center;
+    padding: 65px 20px 80px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at top,
+            rgba(112, 75, 220, 0.22),
+            transparent 65%
+        ),
+        linear-gradient(180deg, #131a2a, var(--fondo));
+    border-bottom: 1px solid var(--borde);
+}
+
+.logo {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+    color: var(--texto);
+}
+
+.logo span {
+    color: var(--verde);
+}
+
+.etiqueta {
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.encabezado h1 {
+    font-size: clamp(30px, 5vw, 54px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1.5px;
+}
+
+.subtitulo {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--texto-secundario);
+    font-size: 16px;
+}
+
+/* Botón de exploración */
+
+.boton-explorar {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 23px;
+    background: var(--verde);
+    color: #101820;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    transition: 0.25s ease;
+}
+
+.boton-explorar span {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.boton-explorar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(86, 240, 163, 0.22);
+    background: #8affc0;
+}
+
+/* ==================================
+   CONTENEDOR PRINCIPAL
+================================== */
+
+.contenedor {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: 65px 0;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo-seccion h2 {
+    font-size: clamp(24px, 4vw, 34px);
+    margin-bottom: 10px;
+}
+
+.titulo-seccion > p:last-child {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+/* ==================================
+   TARJETAS DE COMANDOS
+================================== */
+
+.lista-comandos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.comando {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 27px;
+    min-width: 0;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Línea decorativa superior */
+
+.comando::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--verde), var(--violeta));
+    transition: width 0.3s ease;
+}
+
+.comando:hover {
+    transform: translateY(-8px);
+    background: var(--tarjeta-hover);
+    border-color: rgba(86, 240, 163, 0.45);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
+}
+
+.comando:hover::before {
+    width: 100%;
+}
+
+.icono-comando {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 22px;
+    color: var(--verde);
+    background: rgba(86, 240, 163, 0.09);
+    border: 1px solid rgba(86, 240, 163, 0.2);
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 15px;
+}
+
+.categoria {
+    margin-bottom: 8px;
+    color: var(--violeta);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.comando h2 {
+    color: var(--texto);
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.comando p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Ejemplo de código */
+
+.codigo {
+    width: 100%;
+    padding: 12px;
+    background: #0d121d;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    color: #e3eafa;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.codigo span {
+    color: var(--verde);
+    margin-right: 5px;
+}
+
+/* ==================================
+   CONSEJO
+================================== */
+
+.consejo {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-top: 35px;
+    padding: 25px;
+    background: rgba(167, 139, 250, 0.07);
+    border: 1px solid rgba(167, 139, 250, 0.22);
+    border-radius: 14px;
+}
+
+.consejo-icono {
+    font-size: 27px;
+}
+
+.consejo h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.consejo p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+.consejo strong {
+    color: var(--verde);
+    font-family: Consolas, "Courier New", monospace;
+}
+
+/* ==================================
+   PIE DE PÁGINA
+================================== */
+
+.pie-pagina {
+    text-align: center;
+    padding: 25px 15px;
+    border-top: 1px solid var(--borde);
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.pie-marca {
+    margin-top: 8px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--texto);
+}
+
+.pie-marca span {
+    color: var(--verde);
+}
+
+/* ==================================
+   RESPONSIVE: TABLETS
+================================== */
+
+@media (max-width: 850px) {
+    .lista-comandos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .comando:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+    }
+
+    .encabezado {
+        padding: 55px 20px 65px;
+    }
+}
+
+/* ==================================
+   RESPONSIVE: CELULARES
+================================== */
+
+@media (max-width: 560px) {
+    .encabezado {
+        padding: 40px 18px 50px;
+    }
+
+    .logo {
+        margin-bottom: 25px;
+    }
+
+    .encabezado h1 {
+        letter-spacing: -0.7px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+
+    .contenedor {
+        width: 90%;
+        padding: 45px 0;
+    }
+
+    .lista-comandos {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .comando:last-child:nth-child(odd) {
+        grid-column: auto;
+    }
+
+    .comando {
+        padding: 23px;
+    }
+
+    .consejo {
+        padding: 19px;
+        gap: 12px;
+    }
+}
+
+/* Respeta la preferencia de movimiento del usuario */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+
+/* FONDO DE LA PÁGINA CON gato.jpg */
+
+body {
+    background-color: #0d111b;
+    background-image:
+        linear-gradient(
+            rgba(13, 17, 27, 0.65),
+            rgba(13, 17, 27, 0.80)
+        ),
+        url("./gato.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+}
