@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="ejercicio1.js"></script>
+        <script src="utilitarios.js"></script>
+        <title>Ejercicio tablas</title>
+    </head>
+    <body bgcolor="#DE998C">
+        <input type="text" id="txtNota"/>
+        <input type="button" value="Agregar Nota" onclick="probarNota()"/>
+        <input type="button" value="PRUEBA 1" onclick="agregarElementos()"/>
+        <input type="button" value="imprimir" onclick="recorrerArreglo()"/>
+        <table border="2">
+            <tr>
+                <th>Cabecera 1</th>
+                <th>Cabecera 2</th>
+                <th>Cabecera 3</th>
+            </tr>
+            <tr>
+                <th>celda 1</th>
+                <th>celda 2</th>
+                <th>celda 3</th>
+            </tr>
+            <tr>
+                <th>celda 4</th>
+                <th>celda 5</th>
+                <th>celda 6</th>
+            </tr>
+            <tr>
+                <th>celda 7</th>
+                <th>celda 8</th>
+                <th>celda 9</th>
+            </tr>
+        </table>
+        <input type="button" value="generar tabla" onclick="generarTabla()"/>
+        <input type="button" value="mostrar notas" onclick="mostrarNotas()"/>
+        <div id="divTabla">
+
+        </div>
+    </body>
+
+</html>
